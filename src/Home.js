@@ -6,11 +6,7 @@ const Home = () => {
 
     const [name, setName] = useState('mario');
 
-    const handleDelete = (id)=>{
-        const newBlogs = blogs.filter( blog => blog.id !== id )
-        setBlogs(newBlogs)
-    }
-
+    
     useEffect( ()=>{
         fetch('http://localhost:8000/blogs')
             .then(response => {
@@ -28,7 +24,7 @@ const Home = () => {
                 // conditional templating on react, 
                 // untuk menghandle ketika blogs null
             }
-            {blogs && <BlogList handleDelete={ handleDelete } blogs={ blogs } title="Blog List"/>}
+            {blogs && <BlogList blogs={ blogs } title="Blog List"/>}
         </div>
     );
 }
