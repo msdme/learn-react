@@ -3,8 +3,7 @@ import BlogList from "./BlogList";
 
 const Home = () => {
     const [blogs, setBlogs] = useState(null);
-
-    const [name, setName] = useState('mario');
+    const [isPending, setIsPending] = useState(true);
 
     
     useEffect( ()=>{
@@ -16,15 +15,13 @@ const Home = () => {
             // yaitu return response.json();
             .then((data)=>{
                 setBlogs(data)
+                setIsPending(false)
             })
     },[] );
     return ( 
         <div className="home">
-            {
-                // conditional templating on react, 
-                // untuk menghandle ketika blogs null
-            }
-            {blogs && <BlogList blogs={ blogs } title="Blog List"/>}
+            { isPending && <div>Loading...</div> }
+            { blogs && <BlogList blogs={ blogs } title="Blog List"/>}
         </div>
     );
 }
