@@ -1,4 +1,7 @@
 //Perhatikan props disini
+//Disini biasanya pakai props, tapi pakai magic, 
+//yang harusnya {props}, const blogs= props.blogs
+//jadi pakai extract langsung, ({blogs, title})
 const BlogList = ({blogs, title}) => {
     
     return (

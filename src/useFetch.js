@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 
 
-// custom hooks di react harus diawali dengan "use", untuk itu hook ini di beri nama "useFetch"
+// custom hooks di react harus diawali dengan "use", 
+// untuk itu hook ini di beri nama "useFetch"
 const useFetch = (url) => {
     const [data, setData] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
+    
     useEffect( ()=>{
         fetch(url)
             .then(response => {
